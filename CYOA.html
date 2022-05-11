@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Climate Change CYOA</title>
+        <script>
+            var word_bank = ["Don't believe in climate change, for more on climate change, you can visit the other parts of our website explaining why it's important.", "Don't believe that climate change is a concern, you can visit the other parts of our website explaining why it's important.", "Think global warming/climate change is a very minor concern, but do understand that it exists; visit the other parts of our website to learn more about global warming/climate change.", "Very low knowledge on global warming/climate change, aren't very opinionated on this topic.", "Have heard about climate change, but you don't have any strong opinions on it.", "Understand global warming/climate change to a certain extent, have minimal understanding of the necessity of it.", "Have minimal understanding of global warming/climate change and the necessity of it.", "Have minor understanding of global warming/climate change and its urgency.", "Somewhat understand the effects of global warming/climate change, are not sure of how to apply that knowledge.", "Partially understand the effects of global warming/climate change, don't have considerable knowledge on how to take action on it.", "Understand the effects of global warming/climate change to a certain extent, aren't super big on taking action to it.", "Believe in global warming/climate change, don't really understand how we can reduce the effects of climate change.", "Believe in global warming/climate change, kind of understand what we need to do, but you're a bit unsure.", "Believe in global warming/climate change, have a minor understanding on what we need to do, don't really know how to apply it.", "Believe in global warming/climate change, understand what we need to do, and have a basic understanding of how to do it in our world.", "Believe in global warming/climate change, have great knowledge on this topic, and you understand the applicability of it to our real world.", "Believe in global warming/climate change, have great knowledge on this topic, and you deeply understand how to apply it to our real world.", "Seriously believe in global warming/climate change, have a great understanding of sustainability, you understand the seriousness of the climate crisis and what we need to do more to stop it."];
+            var word_extract = 1; // global variable
+            console.log(word_extract)
+            function yes () {
+                console.log("yes")
+                console.log(word_extract);
+                word_extract += 1;
+                console.log("Extraction line: ".concat(word_extract));
+            }
+            function no () {
+                console.log("no")
+                console.log(word_extract);
+                word_extract += 0;
+                console.log("Extraction line: ".concat(word_extract));
+            }
+            function continuous (points) {
+                console.log("continuous")
+                console.log(word_extract);
+                word_extract += parseInt(points);
+                console.log("Extraction line: ".concat(word_extract));
+            }
+            function array_extract () {
+                var stance = word_bank.slice(word_extract - 1, word_extract)
+                document.getElementById("show_stance").innerHTML = stance;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Final questionnaire</h1>
+        <p>
+            Hello, this is the final questionnaire. Answer the following questions to find out your 
+            stance relative to the environment.
+        </p>
+        <br/> Axios calculator:
+        <br/>
+        <br/>Are you classified as increasing the unit cost of energy or not?
+        <br/><button onclick="yes()">Yes</button>        
+        <br/><button onclick="no()">No</button>
+        <br/>Would your scenario for "Global Temperature Increase" be under or over "business as usual"?
+        <br/><button onclick="yes()">Under</button>        
+        <br/><button onclick="no()">Over</button>
+        <br/>What is your scenario relative to the "business as usual" for the "GHG (Greenhouse gas) emissions" category?
+        <br/><button onclick="yes()">Under</button>
+        <br/><button onclick="no()">Over</button>
+        <br/>
+        <br/>Climate Calculator:
+        <br/>
+        <br/>Are you above or below the UK government targets?
+        <br/><button onclick="yes()">Above</button>        
+        <br/><button onclick="no()">Below</button>
+        <br/>How many extra jobs do you provide?
+        <br/><button onclick="yes()">Above or equal to 1 million</button>        
+        <br/><button onclick="no()">Below 1 million</button>
+        <br/>How many "other benefits" do you have?
+        <br/><button onclick="continuous(5)">5</button> 
+        <br/><button onclick="continuous(4)">4</button>
+        <br/><button onclick="continuous(3)">3</button>        
+        <br/><button onclick="continuous(2)">2</button>
+        <br/><button onclick="continuous(1)">1</button>        
+        <br/>
+        <br/>Survive the Century:
+        <br/>
+        <br/>Did you beat the game?
+        <br/><button onclick="yes()">Yes</button>
+        <br/><button onclick="no()">No</button>
+        <br/>
+        <br/>Till what year did you survive to in this game?
+        <br/><button onclick="continuous(1)">2050</button>        
+        <br/><button onclick="continuous(2)">2060</button>
+        <br/><button onclick="continuous(3)">2070</button>        
+        <br/><button onclick="continuous(4)">2080</button>
+        <br/><button onclick="continuous(5)">2090</button>        
+        <br/><button onclick="continuous(6)">2100</button>
+        <br/><button onclick="array_extract()">Click to view your stance on the environment</button>
+        <p>This is your stance on the environment. You: </p>
+        <p id="show_stance"></p>
+    </body>
+</html>
